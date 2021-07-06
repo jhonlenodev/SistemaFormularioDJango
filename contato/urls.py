@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core.views import ContatoCreate, ContatoCreateSucesso
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', ContatoCreate.as_view(), name='contato_form'),
+    path('sucesso/', ContatoCreateSucesso.as_view(), name='contato_form_sucesso')
 ]

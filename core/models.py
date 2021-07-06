@@ -70,8 +70,8 @@ class Contato(models.Model):
         except smtplib.SMTPAuthenticationError:
             pass
 def send_confirmation_email(sender, instance, created, **wkargs):
-    if not instance.email_sent:
-        instance.send_mail()
+	if not instance.email_sent:
+		instance.send_mail()
 
 models.signals.post_save.connect(
-    send_confirmation_email, sender=Contato, dispatch_uid='contato.Record')
+	send_confirmation_email, sender=Contato, dispatch_uid='contato.Record')
